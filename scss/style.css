@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-h1 {
+h2 {
   text-align: center;
   margin: 1em 0;
 }
@@ -15,11 +15,11 @@ h1 {
 }
 
 .accordion-item {
-  border-top: 1px solid #c5c5c5;
-  color: #333;
+  border-top: 2px solid #7556B3;
+  color: #000000;
 }
 
-.accordion-item h2 {
+.accordion-item h3 {
   padding: 1em;
   margin: 0;
   cursor: pointer;
@@ -43,18 +43,18 @@ h1 {
 }
 
 /*adding the + and - signs*/
-.accordion-item h2 {
+.accordion-item h3 {
   position: relative;
   padding-right: 30px; /* Adjust as needed */
 }
 
-.accordion-item h2::before {
+.accordion-item h3::before {
   content: "+";
   position: absolute;
   right: 10px; /* Adjust as needed */
 }
 
-.accordion-item.active h2::before {
+.accordion-item.active h3::before {
   content: "-";
 }
 

@@ -7,7 +7,7 @@
 
 /* variabler */
 
-const knap = document.querySelectorAll(".accordion-item h2"); /* hentet alle h2'er */
+const knap = document.querySelectorAll(".accordion-item h3"); /* hentet alle h3'er i alle accordion item */
 
 knap.forEach((accordionToggle) => {
 accordionToggle.addEventListener("click", () => {
