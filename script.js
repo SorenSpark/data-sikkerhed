@@ -7,7 +7,11 @@
 
 /* variabler */
 
+<<<<<<< Updated upstream
 const knap = document.querySelectorAll(".accordion-item h3"); /* hentet alle h3'er i alle accordion item */
+=======
+const knap = document.querySelectorAll(".accordion-item h2"); /* hentet alle h2'er */
+>>>>>>> Stashed changes
 
 knap.forEach((accordionToggle) => {
 accordionToggle.addEventListener("click", () => {
