@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+/* main */
+/* branching quiz */
+.quiz-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+#restartBtn {
+  display: none;
+}
+
+/* accordion */
 h2 {
   text-align: center;
   margin: 1em 0;
