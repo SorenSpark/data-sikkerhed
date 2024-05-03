@@ -4,16 +4,65 @@
         box-sizing: border-box;
     }
 
+/* Standard CSS */
+/* darkmode */
+$color-bg-dm: #040506;
+$color-tekst-dm: #fafafa;
+$color-prim-dm: #8485BD;
+$color-sec-dm: #1B1D65;
+$color-ant-dm: #565ABD;
+
+/* lightmode */
+$color-bg-lm: #F9FAFB;
+$color-tekst-lm: #000000;
+$color-prim-lm: #42437B;
+$color-sec-lm: #9A9DE4;
+$color-ant-lm: #4245A9;
+
+/* header */
+
+header {
+    background-color: $color-sec-lm;
+    color: $color-tekst-lm;
+    padding: 1em;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 2px solid $color-ant-lm;
+    margin-bottom: auto;
+
+}
+
+
 /* main */
+.information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.information img {
+  width: 100%;
+  max-width: 700px;
+  height: auto; 
+}
 
 /* branching quiz */
     .quiz-container {
-      max-width: 500px;
+      background-color: $color-sec-lm;
+      max-width: 600px;
+      border: 2px solid $color-ant-lm;
       margin: 0 auto;
+      text-align: center;
+      padding: 2em;
   }
   .question {
       margin-bottom: 20px;
   }
+
+ 
 
   #restartBtn {
     display: none;
@@ -32,7 +81,7 @@ h2 {
   }
   
   .accordion-item {
-    border-top: 2px solid #7556B3;
+    border-top: 2px solid $color-prim-lm;
     color: #000000;
   }
   

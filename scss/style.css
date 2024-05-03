@@ -4,11 +4,44 @@
   box-sizing: border-box;
 }
 
+/* Standard CSS */
+/* darkmode */
+/* lightmode */
+/* header */
+header {
+  background-color: #9A9DE4;
+  color: #000000;
+  padding: 1em;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 2px solid #4245A9;
+  margin-bottom: auto;
+}
+
 /* main */
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.information img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+}
+
 /* branching quiz */
 .quiz-container {
-  max-width: 500px;
+  background-color: #9A9DE4;
+  max-width: 600px;
+  border: 2px solid #4245A9;
   margin: 0 auto;
+  text-align: center;
+  padding: 2em;
 }
 
 .question {
@@ -31,7 +64,7 @@ h2 {
 }
 
 .accordion-item {
-  border-top: 2px solid #7556B3;
+  border-top: 2px solid #42437B;
   color: #000000;
 }
 

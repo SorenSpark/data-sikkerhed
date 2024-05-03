@@ -55,7 +55,7 @@ const loadQuestion = () => {
     // Hent det aktuelle spørgsmål
     const q = questions[currentQuestion];
     // Opdater spørgsmålet i HTML
-    questionElement.textContent = `${currentQuestion + 1}. ${q.question}`;
+    questionElement.textContent = q.question;
     // Slet tidligere svarmuligheder
     choicesElement.innerHTML = '';
     // Tilføj knapper til valgmuligheder
