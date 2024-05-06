@@ -4,33 +4,53 @@
 
 // Definition af spørgsmål og svarmuligheder som objekt array
 const questions = [
+    /* 0 */
     {
-        question: "What's your favorite color?",
+        question: "Du er på en hjemmeside, der tilbyder designer tøj til meget lave priser, men du er usikker på om hjemmesiden er falsk.",
         choices: [
-            { text: "Red", nextQuestion: 1 },
-            { text: "Blue", nextQuestion: 2 },
-            { text: "Green", nextQuestion: 3 },
-            { text: "Yellow", result: "You chose yellow." }
+            { text: "Forlader hjemmesiden", nextQuestion: 1 },
+            { text: "Fortsætter med at shoppe", nextQuestion: 5 },
         ]
     },
+    /* 1 */
     {
-        question: "What's your favorite animal?",
+        question: "Godt klaret! Her er et nyt scenarie: Du modtager en e-mail fra din bank, der hævder at kræve øjeblikkelig handling vedrørende din konto. E-mailen indeholder et hyperlink, der angiveligt fører til din banks hjemmeside.",
         choices: [
-            { text: "Dog", result: "You chose dog." },
-            { text: "Cat", result: "You chose cat." },
-            { text: "Bird", result: "You chose bird." },
-            { text: "Fish", result: "You chose fish." }
+            { text: "Klikker på linket i e-mailen", nextQuestion: 4 },
+
+            { text: "Slet eller markér e-mailen som spam", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op." },
+
+            { text: "Kontakter din banks kundeservice via et velkendt telefonnummer", nextQuestion: 2  },
+
+            { text: "Undersøger om afsenderens mail stemmer overens med bankens maildomæne", nextQuestion: 3 },
         ]
     },
+    /* 2 */
     {
-        question: "What's your favorite food?",
+        question: "Du er nu kommet igennem til din bank, som forklare at de ikke har sendt en mail til dig og beder dig om at slette mailen eller markér det som spam. Hvad gør du?",
         choices: [
-            { text: "Pizza", result: "You chose pizza." },
-            { text: "Burger", result: "You chose burger." },
-            { text: "Salad", result: "You chose salad." },
-            { text: "Sushi", result: "You chose sushi." }
+            { text: "Sletter eller markér e-mailen som spam", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op." },
+            { text: "Klikker på linket alligevel grundet nysgerrighed", nextQuestion: 4 },
         ]
     },
+    /* 3 */
+    {
+        question: "Du har nu undersøgt om mailens domæne er det som din bank bruger. Det er det ikke. Hvad gør du så?",
+        choices: [
+            { text: "Sletter eller markér e-mailen som spam", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op." },
+            { text: "Klikker på linket alligevel grundet nysgerrighed", nextQuestion: 4 },
+            { text: "Kontakter din banks kundeservice via et velkendt telefonnummer", nextQuestion: 2  },
+        ]
+    },
+    /* 4 */
+    {
+        question: "Du har trykket på linket i mailen og er landet på deres hjemmeside. Hjemmesiden ligner ikke helt din banks hjemmeside, der er for mange tegn på svindel som f.eks. en masse stave- og gramatikfejl. på siden beder den om dine personlige informationer til at logge ind så du kan rette i dine bankoplysninger som mailen angiveligt bedte om.",
+        choices: [
+            { text: "Følger instruktionerne på siden", result: "You chose spring." },
+            { text: "Forlader hjemmesiden", result: "You chose summer." },
+        ]
+    },
+    /* 5 */
     {
         question: "What's your favorite season?",
         choices: [
@@ -39,7 +59,7 @@ const questions = [
             { text: "Autumn", result: "You chose autumn." },
             { text: "Winter", result: "You chose winter." }
         ]
-    }
+    },
 ];
 
 const questionElement = document.getElementById('question');
@@ -47,12 +67,12 @@ const choicesElement = document.getElementById('choices');
 const resultElement = document.getElementById('result');
 const restartBtn = document.getElementById('restartBtn');
 
-// Initialiseringsvariabler
+// Nulstil det aktuelle spørgsmål til det første
 let currentQuestion = 0;
 
-// Funktion til at indlæse det aktuelle spørgsmål og svarmuligheder
+// Funktion til at indlæse spørgsmål og svarmuligheder
 const loadQuestion = () => {
-    // Hent det aktuelle spørgsmål
+    // Hent spørgsmål
     const q = questions[currentQuestion];
     // Opdater spørgsmålet i HTML
     questionElement.textContent = q.question;
@@ -84,7 +104,7 @@ const handleChoice = (choice) => {
 // Funktion til at vise resultatet
 const showResult = (result) => {
     // Opdater spørgsmålet til resultat
-    questionElement.textContent = 'Result:';
+    questionElement.textContent = 'Resultat:';
     // Fjern valgmuligheder
     choicesElement.innerHTML = '';
     // Vis resultattekst
@@ -111,7 +131,7 @@ restartBtn.addEventListener('click', restartQuiz);
 
 
 /* variabler */
-
+/* accordion */
 const knap = document.querySelectorAll(".accordion-item h3"); /* henter alle h3'er i alle accordion item */
 
 knap.forEach((accordionToggle) => {
