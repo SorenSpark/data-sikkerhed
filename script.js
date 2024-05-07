@@ -1,5 +1,35 @@
+/* Dark & light mode */
 
+// Hent DOM-elementet(<i> id= toggleDark </i>) for skifte-knappen (toggler)
 
+const toggle = document.getElementById('toggleDark');
+// Hent body-elementet
+const body = document.querySelector('body');
+
+// Lyt efter klik på skifte-knappen
+toggle.addEventListener('click', function () {
+    // Tjek om billedet er lig med logosun.png
+    if(toggle.src.includes('logosun.png')) {
+        // Skift baggrundsfarve til mørk tilstand
+        body.style.background = 'var(--color-bg-dm)';
+        // Skift tekstfarve til mørk tilstand
+        body.style.color = 'var(--color-tekst-dm)';
+        // giver transition effekt i 2 sekunder
+        body.style.transition = '2s';
+        // Opdater billedets kilde til logomoon.png
+        toggle.src = 'img/logomoon.png';
+    // Hvis billedet er lig med logomoon.png
+    } else if(toggle.src.includes('logomoon.png')) {
+        // Skift baggrundsfarve til lys tilstand
+        body.style.background = 'var(--color-bg-lm)';
+        // Skift tekstfarve til lys tilstand
+        body.style.color = 'var(--color-tekst-lm)';
+        // giver transition effekt i 2 sekunder
+        body.style.transition = '2s';
+        // Opdater billedets kilde til logosun.png
+        toggle.src = 'img/logosun.png';
+    }
+});
 /* branching quiz */
 
 // Definition af spørgsmål og svarmuligheder som objekt array
@@ -14,11 +44,11 @@ const questions = [
     },
     /* 1 */
     {
-        question: "Godt klaret! Her er et nyt scenarie: Du modtager en e-mail fra din bank, der hævder at kræve øjeblikkelig handling vedrørende din konto. E-mailen indeholder et hyperlink, der angiveligt fører til din banks hjemmeside.",
+        question: "Godt klaret! Her er et nyt scenarie: Du modtager en e-mail fra din bank, der hævder at kræve øjeblikkelig handling vedrørende din konto. E-mailen indeholder et link, der angiveligt fører til din banks hjemmeside.",
         choices: [
             { text: "Klikker på linket i e-mailen", nextQuestion: 4 },
 
-            { text: "Slet eller markér e-mailen som spam", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op." },
+            { text: "Slet eller markér e-mailen som spam", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op for både dig og andre brugere." },
 
             { text: "Kontakter din banks kundeservice via et velkendt telefonnummer", nextQuestion: 2  },
 
@@ -29,7 +59,7 @@ const questions = [
     {
         question: "Du er nu kommet igennem til din bank, som forklare at de ikke har sendt en mail til dig og beder dig om at slette mailen eller markér det som spam. Hvad gør du?",
         choices: [
-            { text: "Sletter eller markér e-mailen som spam", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op." },
+            { text: "Sletter eller markér e-mailen som spam", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op for både dig og andre brugere." },
             { text: "Klikker på linket alligevel grundet nysgerrighed", nextQuestion: 4 },
         ]
     },
@@ -37,7 +67,7 @@ const questions = [
     {
         question: "Du har nu undersøgt om mailens domæne er det som din bank bruger. Det er det ikke. Hvad gør du så?",
         choices: [
-            { text: "Sletter eller markér e-mailen som spam", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op." },
+            { text: "Sletter eller markér e-mailen som spam", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op for både dig og andre brugere." },
             { text: "Klikker på linket alligevel grundet nysgerrighed", nextQuestion: 4 },
             { text: "Kontakter din banks kundeservice via et velkendt telefonnummer", nextQuestion: 2  },
         ]
@@ -46,18 +76,16 @@ const questions = [
     {
         question: "Du har trykket på linket i mailen og er landet på deres hjemmeside. Hjemmesiden ligner ikke helt din banks hjemmeside, der er for mange tegn på svindel som f.eks. en masse stave- og gramatikfejl. på siden beder den om dine personlige informationer til at logge ind så du kan rette i dine bankoplysninger som mailen angiveligt bedte om.",
         choices: [
-            { text: "Følger instruktionerne på siden", result: "You chose spring." },
-            { text: "Forlader hjemmesiden", result: "You chose summer." },
+            { text: "Følger instruktionerne på siden", result: "Det ser skidt ud. Grundet dine svar ser det ud til at du er et nemt offer for økonomisk svindel og identitetstyveri på nettet. Prøv at genlæse informationerne på siden, også giv det et forsøg igen." },
+            { text: "Forlader hjemmesiden", result: "Hvor er du bare god! Det er den helt korrekte måde at reagere på. Både at forlade hjemmesiden og slette/markere e-mailen som spam, er den korrekte handling da du formindsker chancen for identitetstyveri og økonomisk svindel. Ved at du markere e-mailen som spam så bliver din mailudbyders system klogere og derved forhindre flere af disse mails at dukke op for både dig og andre brugere." },
         ]
     },
     /* 5 */
     {
-        question: "What's your favorite season?",
+        question: "Du har nu fundet alt det tøj du ledte efter, og har trykket ind på indkøbskruven for at tjekke ud. Det eneste du mangler er at skrive dine person- og kreditinformationer ind.",
         choices: [
-            { text: "Spring", result: "You chose spring." },
-            { text: "Summer", result: "You chose summer." },
-            { text: "Autumn", result: "You chose autumn." },
-            { text: "Winter", result: "You chose winter." }
+            { text: "Taster informationerne ind og betaler for tøjet", result: "Det ser skidt ud. Grundet dine svar ser det ud til at du er et nemt offer for økonomisk svindel og identitetstyveri på nettet. Prøv at genlæse informationerne på siden, også giv det et forsøg igen." },
+            { text: "Forlader hjemmesiden", nextQuestion: 1 },
         ]
     },
 ];
